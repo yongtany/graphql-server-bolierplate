@@ -22,12 +22,12 @@ export const startServer = async () => {
 
   const redis = new Redis();
 
-  const server = new GraphQLServer({ 
+  const server = new GraphQLServer({
     schema: mergeSchemas({ schemas }),
-    context: ({ request }) => ({ 
+    context: ({ request }) => ({
       redis,
-      url: request.protocol + "://" + request.get("host"),
-     }),
+      url: request.protocol + "://" + request.get("host")
+    })
   });
 
   server.express.get("/confirm/:id", async (req, res) => {
@@ -37,7 +37,7 @@ export const startServer = async () => {
       await User.update({ id: userId }, { confirmed: true });
       res.send("ok");
     } else {
-      res.send("invaild");
+      res.send("invalid");
     }
   });
 
