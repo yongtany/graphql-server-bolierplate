@@ -6,3 +6,4 @@ temp/
 yarn-error.log
 
 ormconfig.json
+dump.rdb
