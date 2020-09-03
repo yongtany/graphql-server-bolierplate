@@ -1,9 +1,12 @@
 # import Error from "../../shared.graphql"
 
+union RegisterType = String | Error
+
 type Query {
   bye: String
 }
 
 type Mutation {
-  register(email: String!, password: String!): [Error!]
+  register(email: String!, password: String!): [RegisterType!]
 }
+
